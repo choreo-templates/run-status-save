@@ -1,0 +1,16 @@
+{
+  "name": "run-status-save",
+  "version": "1.0.0",
+  "description": "GitHub Action Run Status Save Action",
+  "main": "index.js",
+  "repository": "https://github.com/choreo-templates/run-status-save.git",
+  "author": "Chamod Perera (@Shehanka chamodp@wso2.com)",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@actions/core": "^1.8.0",
+    "@octokit/core": "^3.6.0",
+    "axios": "^0.27.2",
+    "prettier": "^2.6.2"
+  }
+}
