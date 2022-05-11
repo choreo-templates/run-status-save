@@ -1,27 +1,28 @@
 import * as core from '@actions/core';
+
 const axios = require('axios').default;
 
 try {
     const baseURL = core.getInput('baseURL');
     const runId = core.getInput('runId');
     const componentId = core.getInput('componentId');
-    const status = core.getInput('status');
+    const sequenceNo = core.getInput('statusSequenceNo');
     const ghActionType = core.getInput('ghActionType');
 
     const url = `${baseURL}/action/run/status`;
     const payload = {
         componentId: componentId,
         runId: runId,
-        status: status,
+        sequenceNo: sequenceNo,
         ghActionType: ghActionType
     }
 
     axios.post(url, payload).then(
-        ( ) =>{
-            core.setOutput("choreo-status", "saved");
-            console.log("choreo-status", "saved");
+        () => {
+            core.setOutput("choreo-action-run-status", "saved");
+            console.log("choreo-action-run-status", "saved");
         }
-    ).catch((error  => {
+    ).catch((error => {
         if (error.response) {
             core.setFailed(error.response.data);
             console.log(error.response.status);

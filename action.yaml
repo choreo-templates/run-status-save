@@ -17,9 +17,9 @@ inputs:
   componentId:
     required: true
     description: 'Component ID'
-  status:
+  statusSequenceNo:
     required: true
-    description: 'Status of the action run'
+    description: 'Status of the action run sequence no'
   ghActionType:
     required: true
     description: 'GitHub action type (Whether it CREATE_APP or BUILD_DEPLOY)'
