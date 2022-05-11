@@ -1,5 +1,4 @@
-import * as core from '@actions/core';
-
+const core = require('@actions/core');
 const axios = require('axios').default;
 
 try {
