@@ -27,19 +27,17 @@ if (isActionEnabled) {
             }
         ).catch((error => {
             if (error.response) {
-                core.setFailed(error.response.data);
+                core.setOutput("choreo-status",error.response.data);
                 console.log(error.response.status);
             } else if (error.request) {
                 console.log(error.request);
             } else {
                 console.log('Error', error.message);
                 core.setOutput("choreo-status", "failed");
-                core.setFailed(error.message);
             }
         }))
     } catch (e) {
         core.setOutput("choreo-action-run-status-save", "failed");
-        core.setFailed(e.message);
         console.log("choreo-action-run-status-save", "failed");
         console.log(e.message);
     }
