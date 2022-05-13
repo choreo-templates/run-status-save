@@ -12,7 +12,7 @@ if (isActionEnabled) {
         const sequenceNo = core.getInput('statusSequenceNo');
         const ghActionType = core.getInput('ghActionType');
 
-        const url = `${baseURL}/action/run/status`;
+        const url = `${baseURL}/actions/run`;
         const payload = {
             componentId: componentId,
             runId: runId,
