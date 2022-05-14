@@ -19,14 +19,14 @@ if (isActionEnabled) {
             sequenceNo: parseInt(sequenceNo),
             ghActionType: ghActionType
         }
-
+        console.log("Payload : ", payload);
         axios.post(url, payload).then(
             () => {
                 core.setOutput("choreo-action-run-status", "saved");
                 console.log("choreo-action-run-status", "saved");
             }
         ).catch((error => {
-            console.error('Error', error.message);
+            console.error('Error', error);
             if (error.response) {
                 core.setOutput("choreo-status",error.response.data);
                 console.log(error.response.status);
