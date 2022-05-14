@@ -12,7 +12,7 @@ if (isActionEnabled) {
         const sequenceNo = core.getInput('statusSequenceNo');
         const ghActionType = core.getInput('ghActionType');
 
-        const url = `${baseURL}/actions/run`;
+        const url = `${baseURL}/actions/runs`;
         const payload = {
             componentId: componentId,
             runId: runId,
@@ -39,7 +39,7 @@ if (isActionEnabled) {
     } catch (e) {
         core.setOutput("choreo-action-run-status-save", "failed");
         console.log("choreo-action-run-status-save", "failed");
-        console.log(e.message);
+        console.log("choreo-action-run-status-save", e.message);
     }
 } else {
     core.setOutput("choreo-action-run-status-save", "disabled");
