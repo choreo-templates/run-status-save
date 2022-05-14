@@ -15,8 +15,8 @@ if (isActionEnabled) {
         const url = `${baseURL}/actions/runs`;
         const payload = {
             componentId: componentId,
-            runId: runId,
-            sequenceNo: sequenceNo,
+            runId: parseInt(runId),
+            sequenceNo: parseInt(sequenceNo),
             ghActionType: ghActionType
         }
 
@@ -26,6 +26,7 @@ if (isActionEnabled) {
                 console.log("choreo-action-run-status", "saved");
             }
         ).catch((error => {
+            console.error('Error', error.message);
             if (error.response) {
                 core.setOutput("choreo-status",error.response.data);
                 console.log(error.response.status);
