@@ -11,8 +11,12 @@ if (isActionEnabled) {
         const componentId = core.getInput('componentId');
         const sequenceNo = core.getInput('statusSequenceNo');
         const ghActionType = core.getInput('ghActionType');
+        const token = core.getInput('token');
 
         const url = `${baseURL}/component-utils/1.0.0/actions/runs/status`;
+        const headers = {
+            'Authorization': `Bearer ${token}`,
+        }
         const payload = {
             componentId: componentId,
             runId: parseInt(runId),
@@ -20,7 +24,9 @@ if (isActionEnabled) {
             ghActionType: ghActionType
         }
         console.log("Payload : ", payload);
-        axios.post(url, payload).then(
+        axios.post(url, payload, {
+            headers: headers
+        }).then(
             () => {
                 console.log("choreo-action-run-status", "saved");
             }

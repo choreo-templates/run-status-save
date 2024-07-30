@@ -23,3 +23,6 @@ inputs:
   ghActionType:
     required: true
     description: 'GitHub action type (Whether it CREATE_APP or BUILD_DEPLOY)'
+  token:
+    required: true
+    description: 'STS token'
