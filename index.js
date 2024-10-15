@@ -11,6 +11,7 @@ if (isActionEnabled) {
         const componentId = core.getInput('componentId');
         const sequenceNo = core.getInput('statusSequenceNo');
         const ghActionType = core.getInput('ghActionType');
+        const metadata = core.getInput('metadata');
         const token = core.getInput('token');
 
         const url = `${baseURL}/component-utils/1.0.0/actions/runs/status`;
@@ -21,8 +22,14 @@ if (isActionEnabled) {
             componentId: componentId,
             runId: parseInt(runId),
             sequenceNo: parseInt(sequenceNo),
-            ghActionType: ghActionType
+            ghActionType: ghActionType,
+        };
+
+        // Add metadata to payload only if it's provided
+        if (metadata) {
+            payload.metadata = metadata;
         }
+
         console.log("Payload : ", payload);
         axios.post(url, payload, {
             headers: headers
