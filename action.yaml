@@ -26,3 +26,6 @@ inputs:
   token:
     required: true
     description: 'STS token'
+  metadata:
+    required: false
+    description: 'Json content as a base64 encoded string'
