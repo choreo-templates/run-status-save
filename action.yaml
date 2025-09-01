@@ -29,3 +29,6 @@ inputs:
   metadata:
     required: false
     description: 'Json content as a base64 encoded string'
+  webhook_secret:
+    required: true
+    description: 'Webhook secret for the action'

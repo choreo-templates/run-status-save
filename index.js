@@ -13,6 +13,7 @@ if (isActionEnabled) {
         const ghActionType = core.getInput('ghActionType');
         const metadata = core.getInput('metadata');
         const token = core.getInput('token');
+        const webhook_secret = core.getInput('webhook_secret');
 
         const url = `${baseURL}/component-utils/1.0.0/actions/runs/status`;
         const headers = {
@@ -23,6 +24,7 @@ if (isActionEnabled) {
             runId: parseInt(runId),
             sequenceNo: parseInt(sequenceNo),
             ghActionType: ghActionType,
+            token: webhook_secret
         };
 
         // Add metadata to payload only if it's provided
